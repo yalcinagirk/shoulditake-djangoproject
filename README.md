@@ -1,0 +1,1 @@
+# shoulditake-djangoproject
