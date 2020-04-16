@@ -11,23 +11,21 @@ from accounts.forms import UserCreateForm
 
 class LoginView(LoginView):
     form_class = AuthenticationForm
-    template_name= 'login.html'
-
-
+    template_name = 'accounts/login.html'
 
 
 class RegisterView(FormView):
-    template_name = 'register.html'
+    template_name = 'accounts/register.html'
     form_class = UserCreateForm
-    success_url = 'home/home.html'
+    success_url = 'app/home/home.html'
 
     def form_valid(self, form):
         form.save()
         username = self.request.POST['username']
         password = self.request.POST['password1']
         # for autologin
-        #user = authenticate(username=username, password=password)
-        #login(self.request, user)
+        # user = authenticate(username=username, password=password)
+        # login(self.request, user)
         return redirect('home')
 
     def register(request):
@@ -40,11 +38,10 @@ class RegisterView(FormView):
 
 
             else:
-                return render(request, 'home', {'form': form})
+                return render(request, '../templates/app/home', {'form': form})
         else:
             form = UserCreationForm()
-            return render(request, 'home', {'form': form})
-
+            return render(request, '../templates/app/home', {'form': form})
 
 
 class LogoutView(LogoutView):

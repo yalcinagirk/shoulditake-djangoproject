@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+    Article List
+{% endblock %}
+{% block content %}
+
+
+    <div><a class="btn btn-primary " href="{% url 'articlecreate' %}">post create</a></small></div>
+    <hr>
+    <br>
+    {% for article in articles %}
+        <h2 ><a href="{% url 'details' article.slug %}">{{ article.name }}<small class="pull-right" style="margin-left: 10%">{{ article.categorys.get }}</small></a></h2>
+
+        {% if article.get_image %}
+            <div>
+                <img align="center" style="height: 450px;width: 100% " class="img-responsive"
+                     src="{{ article.get_image }}">
+            </div>
+        {% endif %}
+        <p style="font-size: 16px">{{ article.icerik|truncatechars:250 }}
+            {% if article.icerik %}
+                <a href="{% url 'details' article.id %}"> Tıklayın.</a>
+            {% endif %}
+        </p>
+
+        <hr>
+        <br>
+
+
+    {% endfor %}
+{% endblock %}

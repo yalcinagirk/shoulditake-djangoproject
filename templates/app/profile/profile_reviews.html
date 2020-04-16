@@ -1,0 +1,73 @@
+{% extends "../../base.html" %}
+{% load static %}
+{% block title %}
+    Reviews
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row profile">
+            <div class="col-md-3">
+                <div class="profile-sidebar">
+                    <!-- SIDEBAR USERPIC -->
+                    <div class="profile-userpic">
+                        <img style="height: 100px;width: 100px" src="{% static 'img/yalcin.jpg' %}"
+                             class="img-responsive" alt="">
+                    </div>
+                    <!-- END SIDEBAR USERPIC -->
+                    <!-- SIDEBAR USER TITLE -->
+                    <div class="profile-usertitle">
+                        <div class="profile-usertitle-name">
+                            <p>{{ user.first_name }} {{ user.last_name }}</p>
+                        </div>
+                        <div class="profile-usertitle-job">
+                            Developer
+                        </div>
+                    </div>
+                    <!-- END SIDEBAR USER TITLE -->
+                    <!-- SIDEBAR BUTTONS -->
+                    <div class="profile-userbuttons">
+                        <button type="button" class="btn btn-success btn-sm">Follow</button>
+                        <button type="button" class="btn btn-danger btn-sm">Message</button>
+                    </div>
+                    <!-- END SIDEBAR BUTTONS -->
+                    <!-- SIDEBAR MENU -->
+                    <div class="profile-usermenu">
+                        <ul class="nav">
+                            <li>
+                                <a href="{% url 'profile' %}">
+                                    <i class="glyphicon glyphicon-home"></i>
+                                    Overview </a>
+                            </li>
+                            <!--
+                            ******    Account tab ******
+                            <li>
+                                <a href="#">
+                                <i class="glyphicon glyphicon-user"></i>
+                                Account </a>
+                            </li>
+                            -->
+                            <li class="active">
+                                <a href="{% url 'reviews' %}">
+                                    <i class="glyphicon glyphicon-ok"></i>
+                                    Reviews </a>
+                            </li>
+                            <li>
+                                <a href="{% url 'contact' %}">
+                                    <i class="glyphicon glyphicon-flag"></i>
+                                    contact </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END MENU -->
+                </div>
+            </div>
+            <div class="col-md-9">
+
+                <div class="profile-content">
+                    <p style="font-size: 13px" align="center"><strong>Reviews</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

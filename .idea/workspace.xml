@@ -1,32 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="08f01dba-4708-4b8b-9bd6-10d33ae4662e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/profile/profile_contact.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/profile/profile_reviews.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/profile/public_profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/profile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/yalcin.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommentProject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/CommentProject/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CommentProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/CommentProject/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/home/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-    </list>
+    <list default="true" id="08f01dba-4708-4b8b-9bd6-10d33ae4662e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
@@ -35,6 +28,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="CSS File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -56,20 +50,24 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../dersler/myProject" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/myenv/Include" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ali Yalçın\Documents\GitHub\shoulditake-djangoproject\media" />
+      <recent name="C:\Users\Ali Yalçın\Documents\GitHub\shoulditake-djangoproject\templates\accounts" />
+      <recent name="C:\Users\Ali Yalçın\Documents\GitHub\shoulditake-djangoproject\templates" />
+      <recent name="C:\Users\Ali Yalçın\Documents\GitHub\shoulditake-djangoproject\templates\app" />
+      <recent name="$PROJECT_DIR$/app/templates/profile" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ali Yalçın\Documents\GitHub\shoulditake-djangoproject\templates\app\articles" />
+      <recent name="C:\Users\Ali Yalçın\Documents\GitHub\shoulditake-djangoproject\img" />
       <recent name="$PROJECT_DIR$/app/templates" />
       <recent name="$PROJECT_DIR$/static/img" />
       <recent name="$PROJECT_DIR$/static" />
-      <recent name="$PROJECT_DIR$/accounts/templates" />
-      <recent name="$PROJECT_DIR$/app" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/templates/profile" />
-      <recent name="$PROJECT_DIR$/app/templates/home" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -92,6 +90,13 @@
       <workItem from="1584011797554" duration="1879000" />
       <workItem from="1584433459528" duration="4922000" />
       <workItem from="1584449741919" duration="18000" />
+      <workItem from="1586035259801" duration="2612000" />
+      <workItem from="1586087818390" duration="7641000" />
+      <workItem from="1586121065127" duration="1584000" />
+      <workItem from="1586173783749" duration="7616000" />
+      <workItem from="1586443677673" duration="2626000" />
+      <workItem from="1586689707598" duration="9173000" />
+      <workItem from="1586801648283" duration="702000" />
     </task>
     <servers />
   </component>
@@ -112,6 +117,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+    </ignored-roots>
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="WindowStateProjectService">
@@ -119,18 +127,36 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="89" y="210" width="1084" height="719" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582900412288" />
+    <state x="469" y="332" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586691642585">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="469" y="332" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586691642585" />
     <state x="67" y="168" width="865" height="912" key="CommitChangelistDialog2" timestamp="1584015250706">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="67" y="168" width="865" height="912" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1584015250706" />
-    <state x="414" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1584449757503">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="360" y="280" width="424" height="484" key="FileChooserDialogImpl" timestamp="1586802602363">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="360" y="280" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586174164653" />
+    <state x="360" y="280" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586802602363" />
     <state x="414" y="310" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1584449757503" />
     <state x="414" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1583306554271" />
+    <state x="605" y="264" key="SettingsEditor" timestamp="1586443908069">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="605" y="264" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586443908069" />
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1586173790344">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586173790344" />
     <state x="298" y="472" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583864755825">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="298" y="472" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1583864755825" />
+    <state x="795" y="476" width="666" height="285" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1586443790745">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="795" y="476" width="666" height="285" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586443790745" />
   </component>
 </project>

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Article Create
+{% endblock %}
+{% block content %}
+
+    <form style="margin-top: 25%" method="post" enctype="multipart/form-data" action="{% url 'articlecreate' %}">
+        {% csrf_token %}
+        <h3 align="center" style="margin-bottom:5% "><b>ARTICLE CREATE</b></h3>
+        {% for field in form %}
+            <div style="width: 50%;margin-left: 25%" align="center" class="form-group">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label class="control-label" for="{{ field.id_for_label }}">
+                            {{ field.label }}
+                        </label>
+                    </div>
+                    <div class="col-lg-6">
+                        {{ field }}
+                        {% if field.errors %}
+                            {% for error in field.errors %}
+                                <span class="text-danger"><b>{{ error }}</b></span>
+                            {% endfor %}
+                        {% endif %}
+                        {% if field.help_text %}
+                            <span class="text-success"><b>{{ field.help_text }}</b></span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        <div align="center" style="width: 50%;margin-left: 25%" class="form-group">
+            <div class="row">
+                <div class="col-lg-8">
+                    <input type="submit" value="Create" class="btn btn-sm btn-success">
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+{% endblock %}
+
+

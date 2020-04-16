@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container" style="margin-top:10%">
+        <div class="row justify-content-md-center">
+
+            <div class="col-md-auto" style="margin-right:9%">
+                <h1 ALIGN="CENTER">LOGİN</h1>
+                <form style="margin:10% 20%" method="post" action="{% url 'profile' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input style="margin-left:30%" type="submit" class="btn btn-dark" value="Login">
+
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+{% block title %}
+    Login
+{% endblock %}
