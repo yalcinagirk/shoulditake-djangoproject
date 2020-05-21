@@ -1,0 +1,36 @@
+{% extends "auth/profile/user_profile_base.html" %}
+{% load static %}
+{% block title %}
+    Settings
+{% endblock %}
+{% block profil_icerik %}
+
+                <h1 style="margin-top: 50px" align="center" > User Settings</h1>
+                <br>
+                <form method="post" enctype="multipart/form-data" action="{% url 'user_settings' %}">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-group">
+                        <label class="control-label">{{ field.label }}</label>
+                        {{ field }}
+                        </div>
+                        {% if field.errors %}
+                            {% for error in field.errors %}
+                                <span class="text-danger"><b>{{ error }}</b></span>
+                            {% endfor %}
+                        {% endif %}
+                        {% if field.help_text %}
+                            <span class="text-success"><b>{{ field.help_text }}</b></span>
+                        {% endif %}
+                    {% endfor %}
+
+                    <div class="form-group">
+                        <input type="submit" value="Kaydet" class="btn btn-sm btn-success">
+                    </div>
+                <br>
+                <br>
+                <br>
+                </form>
+
+
+{% endblock %}

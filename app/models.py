@@ -4,7 +4,9 @@ from unidecode import unidecode
 from django.template.defaultfilters import slugify
 from uuid import uuid4
 import os
-
+from ckeditor.fields import RichTextField
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
 
 def uplod_to(instance, filename):
     uzanti = filename.split('.')[-1]
@@ -45,12 +47,11 @@ class ProductTitle(models.Model):
         return self.name
 
 
-# Create your models here.
-
-
 class Product(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True, verbose_name='Name:')
-    icerik = models.TextField(max_length=2000, blank=True, null=True, verbose_name='Content')
+    user = models.ForeignKey(User, default=1, null=True, verbose_name='User', related_name='product',
+                             on_delete=models.CASCADE)
+    icerik = RichTextField(null=True, blank=False, max_length=5000, verbose_name="İçerik giriniz...")
     created_date = models.TimeField(auto_now_add=True, auto_now=False)
     image = models.ImageField(default='/img/default.jpg', upload_to=uplod_to, verbose_name='Image', blank=True)
     categorys = models.ManyToManyField(to=Category, blank=True)
@@ -62,12 +63,28 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('details', kwargs={'slug': self.slug})
 
+    def get_added_favorite_user(self):
+        return self.favorite.values_list('user__username', flat=True)
+
+
+    def get_comment_count(self):
+        yorum_sayisi = self.comment.count()
+        if yorum_sayisi > 0:
+            return yorum_sayisi
+        return "Henüz yorum yok."
+    def get_favori_count(self):
+        fovori_sayisi = self.favorite.count()
+        if fovori_sayisi > 0:
+            return fovori_sayisi
+        return "Henüz favori yok."
+
+
     class Meta:
         verbose_name_plural = 'Ürünler'
-        ordering = ['id']
+        ordering = ['-id']
 
     def __str__(self):
-        return self.name
+        return "%s (%s)" % (self.name, self.user)
 
     def get_image(self):
         if self.image:
@@ -96,3 +113,47 @@ class Product(models.Model):
                 self.slug = self.get_unique_sluq()
 
         super(Product, self).save(*args, **kwargs)
+
+    def get_product_comment(self):
+        # gönderiye ait yorumları aldık
+        return self.comment.all()
+
+    def get_blog_comment_count(self):
+        # gönderiye ait yorumları aldık
+        return len(self.get_product_comment())
+
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, null=True, default=1, related_name='comment', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, null=True, on_delete=models.CASCADE, related_name='comment')
+    icerik = models.TextField(verbose_name="Yorum", max_length=1000, blank=False, null=True)
+    comment_date = models.DateTimeField(auto_now_add=True, null=True)
+
+    class Meta:
+        verbose_name_plural = 'Yorumlar'
+
+    def __str__(self):
+        return "%s %s" % (self.user, self.product)
+
+    def get_screen_name(self):
+        if self.user.first_name:
+            return "%s" % (self.user.get_full_name())
+        return self.user.username
+
+
+class FavoritedProduct(models.Model):
+    user = models.ForeignKey(User, null=True, default=1, related_name='favorite', on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, null=True, on_delete=models.CASCADE, related_name='favorite')
+
+    def __str__(self):
+        return "%s %s" % (self.user, self.product)
+
+
+
+    class Meta:
+        verbose_name_plural = 'Favori Ürünler'
+
+def update_product(sender, created, instance,**kwargs):
+    if created:
+        Product.objects.create(user=instance)
+post_save.connect(update_product, sender=User)

@@ -27,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="CSS File" />
+        <option value="Python Script" />
         <option value="HTML File" />
       </list>
     </option>
@@ -50,24 +50,24 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/myenv/Include" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/bootstrap/css" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Ali Yalçın\Documents\GitHub\shoulditake-djangoproject\media" />
-      <recent name="C:\Users\Ali Yalçın\Documents\GitHub\shoulditake-djangoproject\templates\accounts" />
-      <recent name="C:\Users\Ali Yalçın\Documents\GitHub\shoulditake-djangoproject\templates" />
-      <recent name="C:\Users\Ali Yalçın\Documents\GitHub\shoulditake-djangoproject\templates\app" />
-      <recent name="$PROJECT_DIR$/app/templates/profile" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Ali Yalçın\Documents\GitHub\shoulditake-djangoproject\templates\app\articles" />
-      <recent name="C:\Users\Ali Yalçın\Documents\GitHub\shoulditake-djangoproject\img" />
-      <recent name="$PROJECT_DIR$/app/templates" />
-      <recent name="$PROJECT_DIR$/static/img" />
-      <recent name="$PROJECT_DIR$/static" />
+      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\static\bootstrap\css" />
+      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\static\bootstrap\js" />
+      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\static" />
+      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\static\js" />
+      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\static\css" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\templates\following\profile\include" />
+      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\templates\following\profile" />
+      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\templates" />
+      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\static\bootstrap\js" />
+      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\static\bootstrap\css" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -97,6 +97,25 @@
       <workItem from="1586443677673" duration="2626000" />
       <workItem from="1586689707598" duration="9173000" />
       <workItem from="1586801648283" duration="702000" />
+      <workItem from="1589559460251" duration="628000" />
+      <workItem from="1589567561386" duration="175000" />
+      <workItem from="1589621358191" duration="266000" />
+      <workItem from="1589621635629" duration="1356000" />
+      <workItem from="1589626724052" duration="649000" />
+      <workItem from="1589627387327" duration="20351000" />
+      <workItem from="1589713289507" duration="24556000" />
+      <workItem from="1589790216753" duration="324000" />
+      <workItem from="1589790556104" duration="4127000" />
+      <workItem from="1589794701576" duration="22538000" />
+      <workItem from="1589824310420" duration="8964000" />
+      <workItem from="1589875400799" duration="10985000" />
+      <workItem from="1589894605202" duration="9338000" />
+      <workItem from="1589965156066" duration="1759000" />
+      <workItem from="1589981323255" duration="18037000" />
+      <workItem from="1590001262288" duration="59000" />
+      <workItem from="1590004555290" duration="1927000" />
+      <workItem from="1590009862255" duration="1923000" />
+      <workItem from="1590052470429" duration="14925000" />
     </task>
     <servers />
   </component>
@@ -123,29 +142,40 @@
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="89" y="210" width="1084" height="719" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582900412288">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="79" y="178" key="#Inspections" timestamp="1589629033175">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="79" y="178" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1589629033175" />
+    <state x="23" y="181" width="1084" height="719" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589627399396">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="23" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589627399396" />
     <state x="89" y="210" width="1084" height="719" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1582900412288" />
-    <state x="469" y="332" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586691642585">
+    <state x="469" y="332" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589901800547">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="469" y="332" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586691642585" />
+    <state x="469" y="332" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1589901800547" />
+    <state x="210" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590001137381">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="210" y="270" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590001137381" />
     <state x="67" y="168" width="865" height="912" key="CommitChangelistDialog2" timestamp="1584015250706">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="67" y="168" width="865" height="912" key="CommitChangelistDialog2/67.27.1853.1053@67.27.1853.1053" timestamp="1584015250706" />
-    <state x="360" y="280" width="424" height="484" key="FileChooserDialogImpl" timestamp="1586802602363">
+    <state x="360" y="280" width="424" height="484" key="FileChooserDialogImpl" timestamp="1589567630695">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="360" y="280" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586174164653" />
-    <state x="360" y="280" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586802602363" />
+    <state x="360" y="280" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589567630695" />
     <state x="414" y="310" key="FileChooserDialogImpl/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1584449757503" />
     <state x="414" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1583306554271" />
-    <state x="605" y="264" key="SettingsEditor" timestamp="1586443908069">
+    <state x="605" y="264" key="SettingsEditor" timestamp="1589629037914">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="605" y="264" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586443908069" />
+    <state x="605" y="264" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589629037914" />
     <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1586173790344">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -158,5 +188,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="795" y="476" width="666" height="285" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1586443790745" />
+    <state x="106" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1589987823345">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="106" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589987823345" />
   </component>
 </project>

@@ -11,6 +11,8 @@ urlpatterns = [
     url(r'^article_create/$', views.ArticleCreate, name='articlecreate'),
     url(r'^article_update/(?P<slug>[-\w]+)/$', views.ArticleUpdate, name='articleupdate'),
     url(r'^details/(?P<slug>[-\w]+)/$', views.ArticleDetails, name='details'),
+    url(r'^add-comment/(?P<slug>[-\w]+)/$', views.add_comment, name='add-comment'),
+    url(r'^add-remove-favorite/(?P<slug>[-\w]+)/$', views.add_or_remove_favorite, name='add-remove-favorite'),
     url(r'^delete/(?P<slug>[-\w]+)/$', views.ArticleDelete, name='articledelete'),
 
 ]

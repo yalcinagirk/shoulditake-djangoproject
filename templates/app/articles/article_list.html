@@ -1,15 +1,60 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
     Article List
 {% endblock %}
 {% block content %}
+    <div>
+        <form class="form-inline pull-right" action="{% url 'articles' %}">
+        {% for field in form %}
+            {{ field }}
+        {% endfor %}
+        {% for error in errors %}
+            <span class="text-danger" ><b>{{ error }}</b></span>
+        {% endfor %}
+        <div>
+            <input class="btn btn-success" value="Sorgula" type="submit">
+        </div>
+    </form>
 
+    {% if user.is_authenticated %}
+        <a class="btn btn-primary pull-left " href="{% url 'articlecreate' %}">post create</a>
+    {% endif %}
 
-    <div><a class="btn btn-primary " href="{% url 'articlecreate' %}">post create</a></small></div>
-    <hr>
+    </div>
+
     <br>
-    {% for article in articles %}
-        <h2 ><a href="{% url 'details' article.slug %}">{{ article.name }}<small class="pull-right" style="margin-left: 10%">{{ article.categorys.get }}</small></a></h2>
+    <div style="margin-top: 5%">
+        {% for article in articles %}
+        <h4 >
+
+            <a class="glyphicon glyphicon-star {% if request.user.username in article.get_added_favorite_user %}active{% endif %}" href="{% url 'add-remove-favorite' article.slug%}?next={% url 'articles' %}">
+            </a>
+            <a href="{% url 'details' article.slug %}">
+                {{ article.name }}
+                <small style="margin-left: 10px">
+                    {% if article.categorys.get %}({{ article.categorys.get }}){% endif %}
+                </small>
+            </a>
+            <small class="pull-right ">
+                <span style="color: #c37f0e" class="glyphicon glyphicon-star">
+
+                </span>
+                <a style="margin-right: 10px" >
+                    {{ article.get_favori_count}}
+                </a>
+                <span class="glyphicon glyphicon-comment">
+                </span>
+                <a style="margin-right: 10px" >
+                    {{ article.get_comment_count}}
+                </a>
+                <span class="glyphicon glyphicon-user">
+                </span>
+                <a href="{% url 'user_profile' article.user.username%}">
+                    {{ article.user.userprofile.get_screen_name }}
+                </a>
+            </small>
+        </h4>
 
         {% if article.get_image %}
             <div>
@@ -17,9 +62,9 @@
                      src="{{ article.get_image }}">
             </div>
         {% endif %}
-        <p style="font-size: 16px">{{ article.icerik|truncatechars:250 }}
+        <p style="font-size: 16px">{{ article.icerik|truncatechars:250|safe }}
             {% if article.icerik %}
-                <a href="{% url 'details' article.id %}"> Tıklayın.</a>
+                <a href="{% url 'details' article.slug %}"> Tıklayın.</a>
             {% endif %}
         </p>
 
@@ -28,4 +73,30 @@
 
 
     {% endfor %}
+    </div>
+    <nav aria-label="Page navigation example">
+
+      {% if articles.has_other_pages %}
+        <ul class="pagination justify-content-center ">
+            {% if articles.has_previous %}
+                <li><a href="?page={{ articles.previous_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">&laquo;</a></li>
+            {% else %}
+                <li class="disabled"><span>&laquo;</span></li>
+            {% endif %}
+            {% for i in articles.paginator.page_range %}
+                {% if  articles.nuber == i %}
+                    <li class="active"><span>{{i}}<span class="sr-only">(current)</span></span></li>
+                {% else %}
+                    <li ><a href="?page={{ i }}">{{ i }}</a> </li>
+                {% endif %}
+            {% endfor %}
+            {% if articles.has_next %}
+                <li><a href="?page={{ articles.next_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">&raquo;</a></li>
+            {% else %}
+                <li class="disabled"><span>&laquo;</span></li>
+            {% endif %}
+        </ul>
+
+    {% endif %}
+</nav>
 {% endblock %}

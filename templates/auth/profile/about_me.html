@@ -1,0 +1,14 @@
+{% extends "auth/profile/user_profile_base.html" %}
+{% load static %}
+{% block title %}
+    About
+{% endblock %}
+{% block profil_icerik %}
+    <div class="caption">
+        <b>{{ user.userprofile.bio|linebreaksbr }}</b>
+    {{ user.username }}
+
+    </div>
+
+
+{% endblock %}

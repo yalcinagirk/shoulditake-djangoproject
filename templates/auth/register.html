@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container pull-center" style="margin-top:10%">
+        <div class="row justify-content-md-center">
+
+            <div class="col-md-auto" style="margin-right:9%">
+
+                    <div style="width: 50%;margin-left: 25%" align="center" class="form-group">
+                        <form method="post" action="{% url 'register' %}">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                <div class="row">
+                                    <div class="col-lg-2">
+                                        <label class="control-label" for="{{ field.id_for_label }}">
+                                            {{ field.label }}
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        {{ field }}
+                                        {% if field.errors %}
+                                            {% for error in field.errors %}
+                                                <span class="text-danger"><b>{{ error }}</b></span>
+                                            {% endfor %}
+                                        {% endif %}
+                                        {% if field.help_text %}
+                                            <span class="text-success"><b>{{ field.help_text }}</b></span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <input type="submit" class="btn btn-sm btn-success " value="Kayıt Ol"><br>
+                        </form>
+
+                        <span><b><a href="{% url 'user_login' %}">Zaten hesabınız var mı?</a> </b></span>
+                    </div>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+{% block title %}
+    Register
+{% endblock %}

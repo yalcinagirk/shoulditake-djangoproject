@@ -1,0 +1,24 @@
+{{ form.media }}
+{% load  static %}
+{% for field in form %}
+    <div style="width: 50%;margin-left: 25%" align="center" class="form-group">
+        <div class="row">
+            <div class="col-lg-2">
+                <label class="control-label" for="{{ field.id_for_label }}">
+                    {{ field.label }}
+                </label>
+            </div>
+            <div class="col-lg-6">
+                {{ field }}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <span class="text-danger"><b>{{ error }}</b></span>
+                    {% endfor %}
+                {% endif %}
+                {% if field.help_text %}
+                    <span class="text-success"><b>{{ field.help_text }}</b></span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endfor %}

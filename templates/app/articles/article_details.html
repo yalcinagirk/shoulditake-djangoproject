@@ -1,28 +1,139 @@
 {% extends 'base.html' %}
+{% load  static %}
 {% block title %}
         Details
     {% endblock %}
+{{ form.media }}
 {% block content %}
 
 
     {% for post in article %}
-        <a class="btn btn-success btn-sm " href="{% url 'articleupdate' post.slug %}"> Güncelle</a>
-                <a class="btn btn-danger btn-sm " href="{% url 'articledelete' post.slug %}"> Sil</a>
-        <span style="margin-right: 3%"><h2 sty><a href="{% url 'articles' %}"><span class="glyphicon glyphicon-circle-arrow-left pull-left" ></span></a><span style="margin-left: 20px" href="">{{ post.name|upper }}</span> </h2></span>
+
         <br>
         <br>
-    {% if post.get_image %}
+        <span style="margin-right: 3%">
+            <h2 sty>
+                <a href="{% url 'articles' %}">
+                    <span class="glyphicon glyphicon-circle-arrow-left pull-left" >
+
+                    </span>
+                </a>
+                <span style="margin-left: 20px" href="">
+                    {{ post.name|upper }}
+                </span>
+                <a class="glyphicon glyphicon-star {% if request.user.username in post.get_added_favorite_user %}active{% endif %}" href="{% url 'add-remove-favorite' post.slug%}?next={% url 'details' post.slug %}">
+            </a>
+
+                <small style="margin-left: 10px">
+                    {% if post.categorys.get %}
+                        ({{ post.categorys.get }})
+                    {% endif %}
+                </small>
+                <small class="pull-right">
+                    <span style="color: #c37f0e" class="glyphicon glyphicon-star">
+
+                    </span>
+                    <a style="margin-right: 10px" >
+                    {{ post.get_favori_count}}
+                    </a>
+                    <span class="glyphicon glyphicon-comment" style="margin-right: 10px" >
+
+                    </span>
+                    <a style="margin-right: 10px">
+                        {{ post.get_comment_count}}
+                    </a>
+                    <span class="glyphicon glyphicon-user ">
+
+                    </span>Yazar:
+                    <b>
+                        {{ post.user.userprofile.get_screen_name }}
+                    </b>
+                </small>
+            </h2>
+        </span>
+        {% if post.user == request.user %}
+            <a style="width: 90px; height: 20px"  class="btn btn-success btn-sm " href="{% url 'articleupdate' post.slug %}"> Güncelle</a>
+            <a style="width: 90px; height: 20px" class="btn btn-danger btn-sm " href="{% url 'articledelete' post.slug %}"> Sil</a>
+        {% endif %}
+        <br>
+        <br>
+
+        {% if post.get_image %}
             <div >
                 <img  align="center" style="height: 450px;width: 100% " class="img-responsive" src="{{ post.get_image }}">
             </div>
         {% endif %}
+
         <br>
         <br>
         <br>
-    <p style="font-size: 16px">{{ post.icerik }}</p>
+        <h2 align="center">{{ post.name |safe }}</h2>
+        <div>
+             <p align="center" style="font-size: 16px;padding-left: 30%">{{ post.icerik |safe}}</p>
+
+        </div>
+
     <hr>
+    {% if user.is_authenticated %}
+        <h2 class="page-header">Yorum Ekle</h2>
+        <form action="{% url 'add-comment' post.slug%}" method="post">
+            {% csrf_token %}
+            {{ form.media }}
+            {% for field in form %}
+                <div class="row">
+
+                        <div class="col-lg-12" >
+                        <div class="form-group">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% if field.errors %}
+                                {% for error in field.errors %}
+                                    <span class="text-danger"><b>{{ error }}</b></span>
+                                {% endfor %}
+                            {% endif %}
+                            {% if field.help_text %}
+                                <span class="text-success"><b>{{ field.help_text }}</b></span>
+                            {% endif %}
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        <div align="center" class=" form-group" >
+            <img style="margin-top: 15px;margin-left:5px;width: 50px" class="img-responsive img-circle" src="{{ request.user.userprofile.get_profile_photo }}">
+            <input style="width: 100px;margin-top: 10px" type="submit" value="Gönder " class="btn btn-sm btn-success">
+        </div>
+
+        </form>
+        {% endif %}
         <br>
 
+        <div class="row">
+        <h2 class="page-header">Yorumlar ({{ post.get_blog_comment_count }})</h2>
+        <div class="col-lg-12">
+
+            {% for comment in post.get_product_comment %}
+
+                <img style="margin-top: 15px;margin-left:5px;width: 30px" class="img-responsive img-circle" src="{{ request.user.userprofile.get_profile_photo }}">
+                <b class="pull-right"><span class="glyphicon glyphicon-time " style="font-weight:bold"></span>{{ comment.comment_date|timesince}} Önce</b>
+
+                <p style="margin: 5px">
+                    <span style="font-weight:bold;font-size: 12px">{{ comment.get_screen_name }}:  </span> {{ comment.icerik|safe }}
+                </p>
+            <hr>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     {% endfor %}
 {% endblock %}

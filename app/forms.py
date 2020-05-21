@@ -1,5 +1,6 @@
 from django import forms
-from app.models import Product
+from app.models import Product, Comment
+from ckeditor.widgets import CKEditorWidget
 
 
 class ProductForm(forms.ModelForm):
@@ -21,7 +22,18 @@ class ProductForm(forms.ModelForm):
 
 
 class CategorySorguForm(forms.Form):
-    Category = (('all', 'HEPSİ'), ('elektronik', 'Elektronik'), ('moda', 'MODA'))
+    # Category = (('all', 'HEPSİ'), ('elektronik', 'Elektronik'), ('moda', 'MODA'))
+    search = forms.CharField(required=False, max_length=500, widget=forms.TextInput(
+        attrs={'placeholder': 'Bir şeyler arayınız.', 'class': 'form-control'}))
+    # taslak_yayin = forms.ChoiceField(label='', widget=forms.Select(attrs={'class': 'form-control'}),Zchoices=Category, required=True)
 
-    taslak_yayin = forms.ChoiceField(label='', widget=forms.Select(attrs={'class': 'form-control'}),
-                                     choices=Category, required=True)
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['icerik']
+
+    def __init__(self, *args, **kwargs):
+        super(CommentForm, self).__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs = {'class': 'form-control'}
