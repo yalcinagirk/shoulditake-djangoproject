@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
-from app.models import Product
+from app.models import Product, Comment
 from auths.decorators import anonymous_required
 from auths.forms import RegisterForm, LoginForm, UserProfileUpdateForm, UserPasswordChangeForm, UserPasswordChangeForm2
 # Create your views here.
@@ -33,7 +33,7 @@ def register(request):
             if user.is_active:
                 login(request, user)
                 return HttpResponseRedirect(user.userprofile.get_user_profile_url())
-    return render(request, 'auth/register.html', context={'form': form})
+    return render(request, 'BlogTemplate/register.html', context={'form': form})
 
 
 @anonymous_required
@@ -52,8 +52,8 @@ def user_login(request):
             if user.is_active:
                 login(request, user)
                 msg = "<b>Merhaba %s. Sisteme Hoşgeldiniz.</b>" % (username)
-                return HttpResponseRedirect(reverse('articles'))
-    return render(request, 'auth/login.html', context={'form': form})
+                return HttpResponseRedirect(reverse('home'))
+    return render(request, 'BlogTemplate/login.html', context={'form': form})
 
 
 def user_logout(request):
@@ -68,19 +68,20 @@ def user_profile(request, username):
     article_list = Product.objects.filter(user=user)
     takipci_ve_takip_edilen = Following.kullaniciyi_takip_edilenler_ve_takipciler(user)
     takipciler = takipci_ve_takip_edilen['takipciler']
+    comments = len(Comment.objects.filter(user=user))
     takip_edilenler = takipci_ve_takip_edilen['takip_edilenler']
     if user != request.user:
         takip_ediyor_mu = Following.kullaniciyi_takip_ediyor_mu(follower=request.user, followed=user)
 
 
-    return render(request, 'auth/profile/user_profile.html',
+    return render(request, 'ProfileTemplate/articles.html',
                   context={'user': user,
                            'takipciler': takipciler,
                            'takip_edilenler': takip_edilenler,
+                           'comments':comments,
                            'takip_ediyor_mu': takip_ediyor_mu,
                            'article_list': article_list,
                            'page': 'user_profile'
-
                            }
                   )
 
@@ -110,7 +111,7 @@ def user_settings(request):
         user.userprofile.save()
         return HttpResponseRedirect(reverse('user_profile', kwargs={'username': user.username}))
 
-    return render(request, 'auth/profile/settings.html',
+    return render(request, 'ProfileTemplate/settings.html',
                   context={'form': form,
                            'takipciler': takipciler,
                            'takip_edilenler': takip_edilenler,
@@ -127,7 +128,7 @@ def user_about(request, username):
     if user != request.user:
         takip_ediyor_mu = Following.kullaniciyi_takip_ediyor_mu(follower=request.user, followed=user)
 
-    return render(request, 'auth/profile/about_me.html',
+    return render(request, 'ProfileTemplate/about.html',
                   context={'user': user,
                            'page': 'about',
                            'takipciler': takipciler,
@@ -151,7 +152,7 @@ def user_password_change(request):
         # request.user.save()
         # update_session_auth_hash(request, request.user)
         return HttpResponseRedirect(reverse('user_profile', kwargs={'username': request.user.username}))
-    return render(request, 'auth/profile/password_change.html',
+    return render(request, 'BlogTemplate/password_change.html',
                   context={'form': form,
                            'page': 'change',
                            'takipciler': takipciler,

@@ -147,5 +147,4 @@ CKEDITOR_CONFIGS = {
     }
 }
 LOGIN_URL = '/auths/login/'
-LOGIN_REDIRECT_URL = '/articles/'
-LOGOUT_REDIRECT_URL = '/articles/'
+

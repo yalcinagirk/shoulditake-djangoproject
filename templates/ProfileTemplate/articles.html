@@ -1,0 +1,36 @@
+﻿{% extends 'ProfileTemplate/index.html' %}
+{% load static %}
+{% block content %}
+
+<section class="colorlib-blog" data-section="blog">
+    <div class="colorlib-narrow-content">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+                <span style="margin-left: 20px" class="heading-meta">Read</span>
+                <h2 style="margin-left: 20px" class="colorlib-heading">My Blog</h2>
+            </div>
+
+        </div>
+        {% if request.user == user %}
+        <div class="row">
+            <a style="margin-left: 30px"  class="btn py-3 px-4 btn-primary" href="{% url 'articlecreate'  %}"> POST CREATE</a>
+        </div><br>
+        {% endif %}
+        {% for post in article_list %}
+            <div class="col-md-4 col-sm-5 animate-box" data-animate-effect="">
+                <div class="blog-entry">
+                    <a href="{% url 'details' post.slug %}" class="blog-img"><img style="height: 250px;width:250px" src="{{ post.get_image }}" class="img-responsive" alt="HTML5 Bootstrap Template by colorlib.com"></a>
+                    <div class="desc">
+                        <span><small>{{ post.created_date }} </small> | <small><i class="icon-favorite"></i> {{ post.get_favori_count}}  </a> </small> | <small> <i class="icon-bubble3"></i> {{post.get_comment_count}}</small></span>
+                        <h3><a  title="{{post.name}}" href="{% url 'details' post.slug %}">{{post.name|truncatechars:25}}</a></h3>
+                        <p>{{post.icerik|truncatechars:90|safe}}<a href="{% url 'details' post.slug %}" class="btn-custom">Read More <span
+                                    class="ion-ios-arrow-forward"></span></a></p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

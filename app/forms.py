@@ -6,7 +6,7 @@ from ckeditor.widgets import CKEditorWidget
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['name', 'icerik', 'image', 'categorys', 'Subcategorys', 'ProductTitles']
+        fields = ['name', 'image', 'icerik', 'categorys', 'Subcategorys', 'ProductTitles']
 
     def __init__(self, *args, **kwargs):
         super(ProductForm, self).__init__(*args, **kwargs)
@@ -36,4 +36,4 @@ class CommentForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(CommentForm, self).__init__(*args, **kwargs)
         for field in self.fields:
-            self.fields[field].widget.attrs = {'class': 'form-control'}
+            self.fields[field].widget.attrs = {'class': 'form-control','placeholder':'Type a keyword and hit enter'}

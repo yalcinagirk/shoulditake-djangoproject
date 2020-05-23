@@ -1,0 +1,48 @@
+{% extends "BlogTemplate/index.html" %}
+{% load static %}
+{% block content %}
+    <section class="colorlib-blog" data-section="blog">
+				<div class="colorlib-narrow-content">
+					<div class="row">
+						<div align="center" class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
+
+
+                    <div  class="form-group">
+
+                        <form method="post" action="{% url 'user_login' %}">
+                            {% csrf_token %}
+                            {% for field in form %}
+                                <div align="center" class="row">
+                                    <div class="col-lg-2">
+                                        <label class="control-label" for="{{ field.id_for_label }}">
+                                            {{ field.label }}
+                                        </label>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        {{ field }}
+                                        {% if field.errors %}
+                                            {% for error in field.errors %}
+                                                <span class="text-danger"><b>{{ error }}</b></span>
+                                            {% endfor %}
+                                        {% endif %}
+                                        {% if field.help_text %}
+                                            <span class="text-success"><b>{{ field.help_text }}</b></span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            <input type="submit" class="btn btn-sm btn-success " value="Giriş Yap"><br>
+                        </form>
+
+                        <span><b><a href="{% url 'register' %}">Hesabınız yok mu?</a> </b></span>
+                    </div>
+
+
+            </div>
+        </div>
+    </div>
+    </section>
+{% endblock content %}
+{% block title %}
+    Login
+{% endblock %}

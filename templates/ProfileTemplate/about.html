@@ -1,0 +1,84 @@
+{% extends 'ProfileTemplate/index.html' %}
+{% load static %}
+{% block content %}
+<section class="colorlib-about" data-section="about">
+    <div class="colorlib-narrow-content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
+                    <div class="col-md-12">
+                        <div class="about-desc">
+                            <span class="heading-meta">About Us</span>
+                            <h2 class="colorlib-heading">Who Am I?</h2>
+                            <p><strong>Hi I'm {{user.userprofile.get_screen_name}}</strong> {{ user.userprofile.bio }} </p>
+                        </div>
+                    </div>
+                </div>
+                <!--
+                <div class="row">
+                    <div class="col-md-3 animate-box" data-animate-effect="fadeInLeft">
+                        <div class="services color-1">
+                            <span class="icon2"><i class="icon-bulb"></i></span>
+                            <h3>Graphic Design</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+                        <div class="services color-2">
+                            <span class="icon2"><i class="icon-globe-outline"></i></span>
+                            <h3>Web Design</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3 animate-box" data-animate-effect="fadeInTop">
+                        <div class="services color-3">
+                            <span class="icon2"><i class="icon-data"></i></span>
+                            <h3>Software</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-3 animate-box" data-animate-effect="fadeInBottom">
+                        <div class="services color-4">
+                            <span class="icon2"><i class="icon-phone3"></i></span>
+                            <h3>Application</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                        <div class="hire">
+                            <h2>I am happy to know you <br>that 300+ projects done sucessfully!</h2>
+                            <a href="#" class="btn-hire">Hire me</a>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<div id="colorlib-counter" class="colorlib-counters" style="background-image: url({% static 'ProfileTemplate/images/cover_bg_1.jpg' %});" data-stellar-background-ratio="0.5">
+<div class="overlay"></div>
+<div class="colorlib-narrow-content">
+    <div class="row">
+    </div>
+    <div class="row">
+            <div class="col-md-3 text-center animate-box">
+                <span class="colorlib-counter js-counter" data-from="0" data-to="{{user.userprofile.get_articles_count}}" data-speed="5000" data-refresh-interval="50"></span>
+                <span class="colorlib-counter-label">Articles</span>
+            </div>
+            <div class="col-md-3 text-center animate-box">
+                <span class="colorlib-counter js-counter" data-from="0" data-to="{{comments}}" data-speed="5000" data-refresh-interval="50"></span>
+                <span class="colorlib-counter-label">Comments</span>
+            </div>
+
+            <div class="col-md-3 text-center animate-box">
+                <span class="colorlib-counter js-counter" data-from="0" data-to="{{takip_edilenler}}" data-speed="5000" data-refresh-interval="50"></span>
+                <span class="colorlib-counter-label">Follow</span>
+            </div>
+            <div class="col-md-3 text-center animate-box">
+                <span class="colorlib-counter js-counter" data-from="0" data-to="{{takipciler}}" data-speed="5000" data-refresh-interval="50"></span>
+                <span class="colorlib-counter-label">Follower</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

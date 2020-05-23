@@ -1,0 +1,73 @@
+{% extends 'BlogTemplate/index.html' %}
+{% load static %}
+{% block tittle %}{{ article.name }}asdasd{% endblock %}
+
+{% block content %}
+    {% for post in article %}
+        <div class="col-lg-10 px-md-10 py-10">
+            <div class="row pt-md-4">
+                {% if post.user == request.user %}
+                    <div class="form-group ">
+                        {% if post.user == request.user %}
+                            <a   class="btn py-3 px-4 btn-primary" href="{% url 'articleupdate' post.slug %}"> POST UPDATE</a>
+                            <a  class="btn py-3 px-4 btn-danger " href="{% url 'articledelete' post.slug %}"> POST DELETE</a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+
+                <h1 class="mb-3">{{ post.name|upper }}</h1>
+                <p>{{ post.icerik |safe }}</p>
+                <p>
+                    <img style="margin-left: 70px" src="{{ post.get_image }}" alt="" class="img-fluid">
+                </p>
+
+
+                <div class="comment-form-wrap pt-5">
+                    <h3 class="mb-5">Leave a comment</h3>
+                    <form action="{% url 'add-comment' post.slug %}" method="post" class="p-3 p-md-5 bg-light">
+                        {% csrf_token %}
+                        {{ form.media }}
+                        {% for field in form %}
+                            <div class="form-group">
+                                <label for="website">{{ field.label_tag }}</label>
+                                {{ field }}
+                                {% if field.errors %}
+                                    {% for error in field.errors %}
+                                        <span class="text-danger"><b>{{ error }}</b></span>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if field.help_text %}
+                                    <span class="text-success"><b>{{ field.help_text }}</b></span>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+
+                        <div class="form-group">
+                            <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
+                        </div>
+                    </form>
+                </div>
+                <div class="pt-5 mt-5">
+                    <h3 class="mb-5 font-weight-bold">{{ post.get_blog_comment_count }} Comments</h3>
+                    <ul class="comment-list">
+                        {% for comment in post.get_product_comment %}
+                            <li class="comment">
+                                <div class="vcard bio">
+                                    <img src="{{ comment.user.userprofile.get_profile_photo }}" alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                    <h3>{{ comment.get_screen_name }}</h3>
+                                    <div class="meta">{{ comment.comment_date }}</div>
+                                    <p>{{ comment.icerik|safe }}</p>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <!-- END comment-list -->
+
+
+                </div>
+            </div><!-- END-->
+        </div>
+    {% endfor %}
+{% endblock %}

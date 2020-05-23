@@ -1,0 +1,27 @@
+{% extends 'ProfileTemplate/index.html' %}
+{% load static %}
+{% block tittle %}
+    Article Create
+{% endblock %}
+
+
+{% block content %}
+
+    <form style="margin-top: 25%" method="post" enctype="multipart/form-data" action="{% url 'articlecreate' %}">
+        <h3 align="center" style="margin-bottom:5% "><b>ARTICLE CREATE</b></h3>
+        {% csrf_token %}
+        {% include 'app/include/form-include.html' %}
+        <div align="center" style="width: 50%;margin-left: 25%" class="form-group">
+            <div class="row">
+                <div class="col-lg-8">
+                    <input type="submit" value="Create" class="btn btn-sm btn-success">
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+{% endblock %}
+
+

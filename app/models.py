@@ -54,7 +54,7 @@ class Product(models.Model):
     icerik = RichTextField(null=True, blank=False, max_length=5000, verbose_name="İçerik giriniz...")
     created_date = models.TimeField(auto_now_add=True, auto_now=False)
     image = models.ImageField(default='/img/default.jpg', upload_to=uplod_to, verbose_name='Image', blank=True)
-    categorys = models.ManyToManyField(to=Category, blank=True)
+    categorys = models.ManyToManyField(default='Elektronik',to=Category, blank=True)
     Subcategorys = models.ManyToManyField(to=Subcategory, blank=True)
     ProductTitles = models.ManyToManyField(to=ProductTitle, blank=True)
     unique_id = models.CharField(max_length=100, editable=True, null=True)
@@ -131,6 +131,7 @@ class Comment(models.Model):
 
     class Meta:
         verbose_name_plural = 'Yorumlar'
+
 
     def __str__(self):
         return "%s %s" % (self.user, self.product)

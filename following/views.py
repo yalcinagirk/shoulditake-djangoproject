@@ -28,6 +28,6 @@ def kullanici_takip_et_cikar(request):
     takipci_ve_takip_edilen_sayisi = Following.kullaniciyi_takip_edilenler_ve_takipciler(followed)
     context = {'takipciler':takipci_ve_takip_edilen_sayisi['takipciler'],
                'takip_edilenler':takipci_ve_takip_edilen_sayisi['takip_edilenler']}
-    html = render_to_string('auth/profile/include/following_partion.html',context=context, request=request)
+    html = render_to_string('ProfileTemplate/index.html',context=context, request=request)
     data.update({'html':html})
     return JsonResponse(data=data)

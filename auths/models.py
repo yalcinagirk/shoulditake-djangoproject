@@ -2,7 +2,13 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.shortcuts import reverse
 from django.db.models.signals import post_save
+from app.models import Product, Comment
+
+
 # Create your models here.
+from following.models import Following
+
+
 class UserProfile(models.Model):
     Cinsiyet = ((None, 'Cinsiyet'), ('diger', 'DİĞER'), ('erkek', 'ERKEK'), ('kadın', 'KADIN'))
 
@@ -14,6 +20,10 @@ class UserProfile(models.Model):
 
     class Meta:
         verbose_name_plural = "Kullanici Profilleri"
+
+    def get_articles_count(self):
+        return len(Product.objects.filter(user=self.user))
+
 
     def get_screen_name(self):
         user = self.user
@@ -34,7 +44,10 @@ class UserProfile(models.Model):
             return self.profile_photo.url
         return "/static/img/default_image.jpg"
 
-def create_profile(sender, created, instance,**kwargs):
+
+def create_profile(sender, created, instance, **kwargs):
     if created:
         UserProfile.objects.create(user=instance)
+
+
 post_save.connect(create_profile, sender=User)

@@ -50,17 +50,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/bootstrap/css" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/ProfileTemplate" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\templates\ProfileTemplate" />
+      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\templates\BlogTemplate" />
+      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\static\ProfileTemplate" />
+      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\static\BlogTemplate" />
       <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\static\bootstrap\css" />
-      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\static\bootstrap\js" />
-      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\static" />
-      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\static\js" />
-      <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\static\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Ali Yalçın\Desktop\shoulditake-djangoproject\templates\following\profile\include" />
@@ -115,7 +115,15 @@
       <workItem from="1590001262288" duration="59000" />
       <workItem from="1590004555290" duration="1927000" />
       <workItem from="1590009862255" duration="1923000" />
-      <workItem from="1590052470429" duration="14925000" />
+      <workItem from="1590052470429" duration="17695000" />
+      <workItem from="1590076680562" duration="1935000" />
+      <workItem from="1590083319398" duration="11128000" />
+      <workItem from="1590137307812" duration="4011000" />
+      <workItem from="1590156246111" duration="919000" />
+      <workItem from="1590166707581" duration="11772000" />
+      <workItem from="1590226650077" duration="21006000" />
+      <workItem from="1590266806827" duration="4105000" />
+      <workItem from="1590270932453" duration="1683000" />
     </task>
     <servers />
   </component>
@@ -184,6 +192,22 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="298" y="472" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1853.1053@67.27.1853.1053" timestamp="1583864755825" />
+    <state x="953" y="0" width="974" height="1047" key="dock-window-1" timestamp="1590227362243">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="953" y="0" width="974" height="1047" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1590227362243" />
+    <state x="953" y="0" width="974" height="1047" key="dock-window-2" timestamp="1590251325562">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="953" y="0" width="974" height="1047" key="dock-window-2/0.0.1920.1040@0.0.1920.1040" timestamp="1590251325562" />
+    <state x="107" y="106" width="787" height="735" key="dock-window-3" timestamp="1590236567779">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="107" y="106" width="787" height="735" key="dock-window-3/0.0.1920.1040@0.0.1920.1040" timestamp="1590236567779" />
+    <state x="1121" y="0" width="717" height="735" key="dock-window-4" timestamp="1590251584387">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1121" y="0" width="717" height="735" key="dock-window-4/0.0.1920.1040@0.0.1920.1040" timestamp="1590251584387" />
     <state x="795" y="476" width="666" height="285" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1586443790745">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

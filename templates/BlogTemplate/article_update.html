@@ -1,0 +1,26 @@
+{% extends 'BlogTemplate/index.html' %}
+{% load static %}
+{% block title %}
+    Article Create
+{% endblock %}
+{% block content %}
+
+    <form  method="post" enctype="multipart/form-data" action="{% url 'articlecreate' %}">
+        {% csrf_token %}
+        <h3 align="center" style="margin-bottom:5% "><b>ARTICLE UPDATE</b></h3>
+        {% include 'app/include/form-include.html' %}
+
+        <div align="center" style="width: 50%;margin-left: 25%" class="form-group">
+            <div class="row">
+                <div class="col-lg-8">
+                    <input type="submit" value="Update" class="btn btn-sm btn-success">
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+{% endblock %}
+
+

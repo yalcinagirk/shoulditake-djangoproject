@@ -13,11 +13,16 @@ from django.http import HttpResponseBadRequest
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 
+@login_required
 def deneme(request):
     return render(request, 'deneme.html')
 
+
 class HomeView(TemplateView):
-    template_name = "app/home/home.html"
+
+    # template_name = "BlogTemplate/index.html"
+
+    template_name = "ProfileTemplate/home.html"
 
 
 class ProfileView(TemplateView):
@@ -32,8 +37,31 @@ class ReviewsView(TemplateView):
     template_name = "app/profile/profile_reviews.html"
 
 
+
 def ArticleList(request):
     articles = models.Product.objects.all()
+    form = CategorySorguForm(data=request.GET or None)
+    page = request.GET.get('page', 1)
+    if form.is_valid():
+        taslak_yayin = form.cleaned_data.get('taslak_yayin')
+        search = form.cleaned_data.get('search', None)
+        if search:
+            articles = articles.filter(Q(icerik__icontains=search) | Q(name__icontains=search))
+    paginator = Paginator(articles, 6)
+    try:
+        articles = paginator.page(page)
+    except EmptyPage:
+        articles = paginator.page(paginator.num_pages)
+    except PageNotAnInteger:
+        articles = paginator.page(1)
+
+    context = {'articles': articles, 'form': form}
+    # return render(request, 'BlogTemplate/articles.html', context)
+    return render(request, 'BlogTemplate/articles.html', context)
+
+
+def popular_articles(request):
+    articles = models.Product.objects.all().order_by('get_comment_count')
     form = CategorySorguForm(data=request.GET or None)
     page = request.GET.get('page', 1)
     if form.is_valid():
@@ -50,7 +78,8 @@ def ArticleList(request):
         articles = paginator.page(1)
 
     context = {'articles': articles, 'form': form}
-    return render(request, 'app/articles/article_list.html', context)
+    # return render(request, 'BlogTemplate/articles.html', context)
+    return render(request, 'BlogTemplate/articles.html', context)
 
 
 def ArticleDetails(request, slug):
@@ -58,7 +87,7 @@ def ArticleDetails(request, slug):
     article = models.Product.objects.filter(slug=slug)
     if article:
         context = {'article': article, 'form': form}
-        return render(request, 'app/articles/article_details.html', context)
+        return render(request, 'BlogTemplate/single.html', context)
     return render(request, '404.html')
 
 
@@ -66,16 +95,13 @@ def ArticleDetails(request, slug):
 def ArticleCreate(request):
     form = ProductForm()
     if request.method == "POST":
-        form = ProductForm(data=request.POST, files=request.FILES or None)
+        form = ProductForm(data=request.POST, files=request.FILES)
         if form.is_valid():
             product = form.save(commit=False)
-            product.user =request.user
+            product.user = request.user
             product.save()
-
-            messages.success(request, '<strong>%s</strong> başlıklı article oluşturuldu.' % (product.name),
-                             extra_tags='success')
             return HttpResponseRedirect(product.get_absolute_url())
-    return render(request, 'app/articles/article_create.html', context={'form': form})
+    return render(request, 'BlogTemplate/article_create.html', context={'form': form})
 
 
 @login_required
@@ -89,7 +115,7 @@ def ArticleUpdate(request, slug):
         product.update()
         return HttpResponseRedirect(reverse('details', kwargs={'slug': slug}))
     context = {'form': form, 'product': product}
-    return render(request, 'app/articles/article_update.html', context=context)
+    return render(request, 'BlogTemplate/article_update.html', context=context)
 
 
 @login_required
@@ -100,13 +126,12 @@ def ArticleDelete(request, slug):
     if request.user != product.user:
         return HttpResponseForbidden()
     product.delete()
-    messages.success(request, '<strong>%s</strong> başlıklı makale silindi.' % (product.name), extra_tags='danger')
     return HttpResponseRedirect(reverse('articles'))
 
 
 @login_required
 def add_comment(request, slug):
-    #if request.user.is_anonymous:
+    # if request.user.is_anonymous:
     #    return HttpResponseRedirect(reverse('user_login'))
     if request.method == 'GET':
         return HttpResponseBadRequest()
@@ -119,6 +144,7 @@ def add_comment(request, slug):
         new_comment.save()
         messages.success(request, 'Tebrikler yorumunuz oluşturuldu.')
         return HttpResponseRedirect(product.get_absolute_url())
+
 
 @login_required
 def add_or_remove_favorite(request, slug):
@@ -133,6 +159,3 @@ def add_or_remove_favorite(request, slug):
     if not url:
         url = reverse('articles')
     return HttpResponseRedirect(url)
-
-
-
