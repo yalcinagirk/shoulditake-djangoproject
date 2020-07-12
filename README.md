@@ -1,1 +1,2 @@
-# shoulditake-djangoproject
+# shoulditake-djangoproject,
+asdasd
